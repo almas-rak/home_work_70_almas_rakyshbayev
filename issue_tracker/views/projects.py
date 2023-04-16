@@ -19,7 +19,7 @@ class ProjectsView(ListView):
 
 
 class ProjectCreateView(CreateView):
-    template_name = 'project_create.html'
+    template_name = 'project_templates/project_create.html'
     model = Project
     form_class = ProjectForm
 
