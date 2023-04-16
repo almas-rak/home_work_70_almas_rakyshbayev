@@ -21,6 +21,7 @@ from app import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('issue_tracker.urls')),
+    path("api/", include('api.urls')),
 
 ]
 if settings.DEBUG:
@@ -28,4 +29,3 @@ if settings.DEBUG:
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
                   ] + urlpatterns
-
