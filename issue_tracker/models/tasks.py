@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+from issue_tracker.managers import CustomManager
+
 
 class Task(models.Model):
     summary = models.CharField(
@@ -13,8 +15,9 @@ class Task(models.Model):
         verbose_name='Полное описание'
     )
 
-    status = models.ManyToManyField(
+    status = models.ForeignKey(
         to='issue_tracker.Status',
+        on_delete=models.RESTRICT,
         related_name='tasks',
         verbose_name='Статус'
     )
@@ -51,6 +54,8 @@ class Task(models.Model):
         null=True,
         default=None
     )
+
+    objects = CustomManager()
 
     def delete(self, using=None, keep_parents=False):
         self.is_deleted = True
