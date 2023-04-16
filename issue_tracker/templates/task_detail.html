@@ -19,8 +19,8 @@
                     {% if not delete %}
                         <p class="card-text">Description: <br> {{ task.description }}</p>
                     {%endif%}
-                    <p class="card-text"><small class="text-muted">Дата создания: {{task.created_at}}</small></p>
-                    <p class="card-text"><small class="text-muted">Дата обновления: {{task.updated_at}}</small></p>
+                    <p class="card-text"><small class="text-muted">Created at: {{task.created_at}}</small></p>
+                    <p class="card-text"><small class="text-muted">Updated at: {{task.updated_at}}</small></p>
                     {% if delete %}
                     {% include 'partial/confirm_delete.html' %}
                     {%endif%}

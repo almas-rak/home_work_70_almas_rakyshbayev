@@ -1,5 +1,5 @@
 
-<h1>Вы точно хотите удалить задачу?</h1>
+<h1>Are you sure you want to delete the task?</h1>
 <form action="{% url 'task_delete' task.pk %}" method="POST">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">DELETE</button>

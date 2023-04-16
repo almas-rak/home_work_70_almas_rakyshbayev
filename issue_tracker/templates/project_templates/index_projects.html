@@ -5,7 +5,7 @@
         <a class="nav-link active" href="{% url 'create_task' %}">Add Task</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="{% url 'create_project' %}">Add create_project</a>
+        <a class="nav-link active" href="{% url 'create_project' %}">Add Project</a>
     </li>
 
 {% endblock menu %}
@@ -16,13 +16,13 @@
     <thead>
     <tr>
         <th scope="col" class="sortable column-summary">
-            <div class="text">Краткое описание</div>
+            <div class="text">Description</div>
         </th>
         <th scope="col">
-            <div class="text">Время и дата создания</div>
+            <div class="text">Created at</div>
         </th>
         <th scope="col">
-            <div class="text">Время и дата обновления</div>
+            <div class="text">Updated at</div>
         </th>
     </tr>
     </thead>

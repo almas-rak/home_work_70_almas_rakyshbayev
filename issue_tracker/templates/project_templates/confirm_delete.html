@@ -2,7 +2,7 @@
 {% block title %}Project confirm delete{% endblock title %}
 
 {% block content %}   
-    <h1>Вы точно хотите удалить проект?</h1>
+    <h1>Are you sure you want to delete the project?</h1>
 <div class="container"></div>
     <div class="card detail-card-custum mb-3 col-10">
         <div class="row g-0">
@@ -12,8 +12,8 @@
 
                     </div>
 
-                    <p class="card-text"><small class="text-muted">Дата создания: {{project.created_at}}</small></p>
-                    <p class="card-text"><small class="text-muted">Дата обновления: {{project.completed_at}}</small></p>
+                    <p class="card-text"><small class="text-muted">Created at: {{project.created_at}}</small></p>
+                    <p class="card-text"><small class="text-muted">Updated at: {{project.completed_at}}</small></p>
                     <form action="{% url 'project_delete' project.pk %}" method="POST">
                         {% csrf_token %}
                     <button type="submit" class="btn btn-danger">DELETE</button>
