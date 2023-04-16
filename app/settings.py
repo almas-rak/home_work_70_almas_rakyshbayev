@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'debug_toolbar',
+    'rest_framework',
     'issue_tracker',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hw_59',
+        'NAME': 'hw_70',
         'USER': 'postgres',
         'PASSWORD': 'hDWFNt2c',
         'HOST': 'localhost',
-        'PORT': '40005',
+        'PORT': '',
     }
 }
 
