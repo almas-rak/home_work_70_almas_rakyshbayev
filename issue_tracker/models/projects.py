@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+from issue_tracker.managers import CustomManager
+
 
 class Project(models.Model):
     created_at = models.DateField(verbose_name='Дата создания')
@@ -9,6 +11,8 @@ class Project(models.Model):
     description = models.TextField(max_length=3000, verbose_name='описание')
     is_deleted = models.BooleanField(default=False, verbose_name='Удалено')
     deleted_at = models.DateTimeField(verbose_name='Дата и время удаления', null=True, default=None)
+
+    objects = CustomManager()
 
     def delete(self, using=None, keep_parents=False):
         self.is_deleted = True
