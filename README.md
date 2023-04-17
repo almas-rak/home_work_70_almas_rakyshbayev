@@ -1,14 +1,14 @@
 # home_work_70_almas_rakyshbayev
 
-admin
-login: root
+admin  
+login: root  
 password: root
 
-Tasks 
+Задачи
 
-List
-method: GET
-url:host/api/tasks/
+Список задач  
+method: GET  
+url: http://host/api/tasks/
 
     {
         "id": "id задачи",
@@ -30,50 +30,225 @@ url:host/api/tasks/
         "created_at": "Дата и время создания задачи(ставится автоматически при создании задачи)",
         "updated_at": "Дата и время обнавления задачи(ставится автоматически при изменении задачи)"
     },
+
+Детали задачи  
+method: GET  
+url: http://host/api/tasks/<id задачи>/
+
+    {
+        "id": "id задачи",
+        "summary": "название задачи",
+        "status": {
+            "id": id статуса,
+            "name": "Название статуса"
+        },
+        "type": [  
+            {
+            "id": id типа,
+            "name": "имя типа"
+            }
+        ],
+        "description": "Описание Задачи",
+        "project": {
+            "id": id проекта,
+            "name": "Название проекта"
+        },
+        "created_at": "Дата и время создания задачи(ставится автоматически при создании задачи)",
+        "updated_at": "Дата и время обнавления задачи(ставится автоматически при изменении задачи)"
+    }
+
+Создание задачи  
+method: POST  
+url: http://host/api/tasks/  
+
+    {
+        "summary": "Обязательное поле. Строка. Максимум 100 символов",
+        "status": Обязательное поле. Число. id статуса,
+        "type": [Обязательное поле. Список. Число. id типа ],
+        "description": "Строка.",
+        "project": Обязательное поле. Число. id проекта
+    }
+
+Изменение задачи  
+method: PUT  
+url: http://host/api/tasks/<id задачи>/ 
+
+    {
+        "summary": "Обязательное поле. Строка. Максимум 100 символов",
+        "status": Обязательное поле. Число. id статуса,
+        "type": [Обязательное поле. Список. Число. id типа ],
+        "description": "Строка.",
+        "project": Обязательное поле. Число. id проекта
+    }
+
+Изменение задачи  
+method: PATCH  
+url: http://host/api/tasks/<id задачи>/ 
+
+    {
+        "summary": " Строка. Максимум 100 символов",
+        "status": Число. id статуса,
+        "type": [ Список. Число. id типа ],
+        "description": "Строка.",
+        "project":  Число. id проекта
+    }
+
+
+Проекты
+
+Список проектов  
+method: GET  
+url: http://host/api/projects/
     
-Detail
-method: GET
-url:host/api/tasks/<id задачи>/
-
-{
-    "id": 5,
-    "summary": "task_4",
-    "status": {
-        "id": 1,
-        "name": "Новая"
+    {
+        "id": id Проекта,
+        "name": "Имя проекта",
+        "created_at": "Дата начала проекта",
+        "completed_at": "Дата окончания проекта"
     },
-    "type": [
-        {
-            "id": 1,
-            "name": "Задача"
-        }
-    ],
-    "description": "task_5",
-    "project": {
-        "id": 1,
-        "name": "HW_59"
+
+Детали проекта  
+method: GET  
+url: http://host/api/projects/<id Проекта>
+    
+    {
+        "id": id Проекта,
+        "name": "Имя проекта",
+        "description": "Описание поекта",
+        "created_at": "Дата начала проекта",
+        "completed_at": "Дата окончания проекта",
+        "tasks": [ список привязаных задач
+            {
+                "id": id задачи,
+                "summary": "Название задачи"
+            },
+        ]
+    }
+    
+Создание проекта  
+method: POST  
+url: http://host/api/projects/
+
+    {
+        "name": "Обязательное поле. Строка. Максимум 50 символов",
+        "description":"Обязательное поле. Срока. Максимум 3000 символов",
+        "created_at": "Обязательное поле. Строка. Формат даты YYYY-MM-DD"
+        "completed_at": "Строка. Формат даты YYYY-MM-DD"
+    }
+
+Изменение проекта  
+method: PUT  
+url: http://host/api/projects/<id Проекта>
+
+    {
+        "name": "Обязательное поле. Строка. Максимум 50 символов",
+        "description":"Обязательное поле. Срока. Максимум 3000 символов",
+        "created_at": "Обязательное поле. Строка. Формат даты YYYY-MM-DD"
+        "completed_at": "Строка. Формат даты YYYY-MM-DD"
+    }
+
+
+Изменение проекта  
+method: PATCH  
+url: http://host/api/projects/<id Проекта>
+
+    {
+        "name": "Строка. Максимум 50 символов",
+        "description":"Срока. Максимум 3000 символов",
+        "created_at": "Строка. Формат даты YYYY-MM-DD"
+        "completed_at": "Строка. Формат даты YYYY-MM-DD"
+    }
+
+
+Статусы  
+Список статусов  
+method: GET  
+url: http://host/api/statuses/
+
+    {
+        "id": id статуса,
+        "name": "Название статуса"
     },
-    "created_at": "2023-03-09T22:16:17.867000+06:00",
-    "updated_at": "2023-03-09T22:16:31.911000+06:00"
-}
+
+
+Детали статуса  
+method: GET  
+url: http://host/api/statuses/<id статуса>
+
+    {
+        "id": id статуса,
+        "name": "Название статуса"
+    },
+
+Добавление статуса 
+method: POST  
+url: http://host/api/statuses/
+
+    {
+        "name": "Обязательное поле. Строка. Максимум 20 символов"
+    },
+
+Изменения статуса 
+method: PUT  
+url: http://host/api/statuses/<id статуса>
+
+    {
+        "name": "Обязательное поле. Строка. Максимум 20 символов"
+    },
+
+Изменения статуса 
+method: PATCH  
+url: http://host/api/statuses/<id статуса>
+
+    {
+        "name": "Строка. Максимум 20 символов"
+    },
 
 
 
+Типы  
+Список типов  
+method: GET  
+url: http://host/api/types/
+
+    {
+        "id": id типа,
+        "name": "Название типа"
+    },
 
 
+Детали типа  
+method: GET  
+url: http://host/api/types/<id типа>
 
+    {
+        "id": id типа,
+        "name": "Название типа"
+    },
 
+Добавление типа 
+method: POST  
+url: http://host/api/types/
 
+    {
+        "name": "Обязательное поле. Строка. Максимум 20 символов"
+    },
 
+Изменения типа 
+method: PUT  
+url: http://host/api/types/<id типа>
 
+    {
+        "name": "Обязательное поле. Строка. Максимум 20 символов"
+    },
 
+Изменения типа 
+method: PATCH  
+url: http://host/api/types/<id типа>
 
-
-
-
-
-
-
+    {
+        "name": "Строка. Максимум 20 символов"
+    },
 
 
 
