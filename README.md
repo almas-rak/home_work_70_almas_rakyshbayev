@@ -93,6 +93,10 @@ url: http://host/api/tasks/<id задачи>/
         "project":  Число. id проекта
     }
 
+Удаление задачи  
+method: DELETE  
+url: http://host/api/tasks/<id задачи>/
+
 
 Проекты
 
@@ -160,6 +164,11 @@ url: http://host/api/projects/<id Проекта>
     }
 
 
+Удаление проекта  
+method: DELETE  
+url: http://host/api/projects/<id Проекта>
+
+
 Статусы  
 Список статусов  
 method: GET  
@@ -204,6 +213,9 @@ url: http://host/api/statuses/<id статуса>
         "name": "Строка. Максимум 20 символов"
     },
 
+Удаление статуса  
+method: DELETE  
+url: http://host/api/statuses/<id статуса>
 
 
 Типы  
@@ -250,7 +262,9 @@ url: http://host/api/types/<id типа>
         "name": "Строка. Максимум 20 символов"
     },
 
-
+Удаление типа  
+method: DELETE  
+url: http://host/api/types/<id типа>
 
 
 
